@@ -1,0 +1,87 @@
+切换分支：（分支文件独立）
+git chekout 分支名 
+
+创建并切换分支：
+git checkout -b 分支名
+
+删除分支：
+git checkout -d 分支名
+
+
+从远端服务器从拉取代码到本地： （工作区和本地库都会更改）
+git pull 
+
+从工作区添加修改文件到缓冲区：
+git add
+
+缓冲区添加到本地库
+git commit -m "注解"
+
+查看本地库版本日志：
+git log
+
+提交到远端库：
+使用gui工具
+
+查询当前分支：
+git branch
+
+分支合并：
+git merge 分支名 （所在分支去吃掉 这里写的分支）
+
+分支变化 “基”： （变换从哪里拉出）
+git rebase “分支”  （这里分支名为主分支，且主分支不会受到改变）
+
+rebase活动继续：（有merge情况）
+gir rebase --continue
+
+rebase活动取消：（不想继续了）
+git rebase --abort
+
+查询标签：(-n可以把注解打出来看)
+git tag -n
+
+创建注解标签
+git tag -a V1.0 -m "第一次创建标签"
+
+删除标签:
+git tag -d V1.0
+
+查询日志对应的标签:
+git log --decorate
+
+跳转到标签版本：（有点像 git reset --hart V1.0，其实和切换分支一样 不能有修改）
+git checkout V1.0  
+
+跳转到commitid版本：
+git checkout commitid
+
+恢复到制定版本：(XX：soft mixed hard，影响分辨是：本地库、本地库和缓冲区、本地库和缓冲区和工作区 y:表示回退多少版本，可不设置，表示顶端版本)
+git reset --XX head~Y 
+
+恢复到指定的log:(默认mixed)
+git reset commitid
+
+还原reset前的状态(不能连续回退)
+git reset --hard ORIG_HEAD
+
+替换最顶上的log日志
+git add 对应文件后使用：
+git commit --amend -m "替换的注释"
+
+修改最近一次提交：
+git add a.txt
+git commit --amend
+
+取消最近一次提交：(文件的修改会保留)
+git revert head 
+
+获取其他分支的提交到当前分支：（99daed2为其他分支的commit id） 
+git cherry-pick 99daed2
+
+合并两次提交：（或者直接用gui工具 日志查看 选中 合并）
+git rebase -i HEAD~~
+进入后输入 vim
+把需要合并的修改为：squash
+输入“：wq”保存
+再次输入“：wq”保存

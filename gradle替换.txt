@@ -1,0 +1,12 @@
+gradle 就是用来打包的，为何要打包？你需要把你的代码发布成二进制形式，让其它环境方便运行，这就是打包
+
+在工程的gradle-wrapper.properties中可以看到gradle的版本，然后在百度下载这个压缩包，放在你本地的路径下，再在studio中 setting->gradle -》gradle home 选择本地路径即可，
+
+原理，打开工程后，androidstudio会去读取gradle-wrapper.properties文件来获取当前工程是要哪个版本的gradle.然后会去gradle home中找，没有就会去下载，因此我们把gradle home 中设置为我们的gradle即可，
+这里放到路径：E:\cache\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9。 注意就是防盗乱码文件下。不要解压，不要删除gradle-3.3-all.zip.lck
+
+1.gradle home 都配置为 E:/cache/.gradle  Androidstudio默认认的是这个配置
+2.project-level settings 作用范围为单项目 优先级高 没有才去（service directory）全局  范围找
+3.环境变量配置
+  GRADLE_USER_HOME E:\cache\.gradle
+  path  %GRADLE_USER_HOME_BIN%;。。。
