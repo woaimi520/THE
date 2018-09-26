@@ -1,0 +1,10 @@
+下载地址
+https://laod.cn/hosts/2017-google-hosts.html
+网盘地址：提取码https 解压密码：laod.org
+https://iiio.io/download/20170808/
+把hosts放在目录下 执行脚本替换
+
+路径
+C:\Windows\System32\drivers\etc
+执行	
+ipconfig /flushdns
